@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>Number Guessing</title>
+</head>
+<body>
+<h1>🔢 Number Guessing Game</h1>
+<h3 id="score">Score: 0</h3>
+<h2 id="question"></h2>
+<input type="number" id="answer" placeholder="Your answer">
+<button onclick="checkAnswer()">Submit</button>
+<h3 id="result"></h3>
+<button onclick="nextPuzzle()">Next Puzzle</button>
+<button onclick="resetPuzzle()">Reset Game</button>
+<button onclick="goBack()" style="
+position:absolute;
+top:10px;
+left:10px;
+padding:8px 12px;
+border:none;
+border-radius:8px;
+background:black;
+color:white;
+cursor:pointer;
+z-index:1000;
+">
+⬅ Back
+</button>
+<style>
+body{
+    font-family: Arial;
+    background:url("guessing.png");
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+input{
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+}
+button{
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius:10px;
+    border: none;
+    cursor: pointer;
+}
+</style>
+<script>
+let answered=false;
+let score=0;
+let puzzles =[
+    {q: "2, 6, 7, 21, 22, ?", a: 66},
+    {q: "1, 4, 9, 16, ?", a: 25},
+    {q: "5, 10, 20, 40, ?", a: 80},
+    {q: "3, 9, 27, ?", a: 81},
+    {q: "10, 9, 8, 7, ?", a: 6},
+    {q: "2, 3, 5, 7, 11, ?", a: 13},
+    {q: "1, 1, 2, 3, 5, ?", a: 8},
+    {q: "4, 6, 9, 13, 18, ?", a: 24},
+    {q: "7, 14, 28, 56, ?", a: 112},
+    {q: "100, 90, 80, 70, ?", a: 60},
+    {q: "1, 8, 27, 64, ?", a: 125},
+    {q: "2, 5, 10, 17, 26, ?", a: 37},
+    {q: "3, 6, 18, 72, ?", a: 360},
+    {q: "9, 18, 17, 34, 33, ?", a: 66},
+    {q: "1, 3, 6, 10, 15, ?", a: 21},
+    {q: "2, 4, 12, 48, ?", a: 240},
+    {q: "5, 7, 11, 19, 35, ?", a: 67},
+    {q: "8, 16, 24, 32, ?", a: 40},
+    {q: "1, 2, 6, 24, 120, ?", a: 720},
+    {q: "11, 13, 17, 19, 23, ?", a: 29},
+    {q: "2, 3, 6, 7, 14, ?", a: 15},
+    {q: "50, 45, 40, 35, ?", a: 30},
+    {q: "6, 11, 21, 36, 56, ?", a: 81},
+    {q: "2, 10, 30, 68, ?", a: 130},
+    {q: "1, 5, 14, 30, 55, ?", a: 91}
+];
+let current=0;
+function loadPuzzle(){
+    document.getElementById("question").innerText=puzzles[current].q;
+    document.getElementById("result").innerText="";
+    document.getElementById("answer").value="";
+    answered=false;
+}
+function checkAnswer(){
+    if(answered)return;
+    let userAnswer=Number(document.getElementById("answer").value);
+    if(userAnswer===puzzles[current].a){
+        score++;
+        answered=true;
+        document.getElementById("score").innerText="Score : "+score
+        document.getElementById("result").innerText= "✅ Correct!";
+    }
+    else{
+        document.getElementById("result").innerText = "❌ Try Again!";
+    }
+}
+function nextPuzzle(){
+    current=(current+1)%puzzles.length;
+    loadPuzzle();
+}
+function resetPuzzle(){
+    current=0;
+    score=0;
+    answered=false;
+    document.getElementById("score").innerText="Score : "+score;
+    loadPuzzle();
+}
+function goBack(){
+    window.parent.postMessage("goBack", "*");
+}
+
+loadPuzzle();
+</script>
+</body>
+</html>

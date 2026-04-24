@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Reaction Time Game</title>
+</head>
+<body>
+<h1>⚡ Reaction Time Game</h1>
+<h2 id="status">Wait for green...</h2>
+<h3 id="best">Best: -- ms</h3>
+<div id="box"></div>
+<button onclick="goBack()" style="
+position:absolute;
+top:10px;
+left:10px;
+padding:8px 12px;
+border:none;
+border-radius:8px;
+background:black;
+color:white;
+cursor:pointer;
+z-index:1000;
+">
+⬅ Back
+</button>
+<style>
+body{
+    text-align:center;
+    font-family: Arial;
+    background:url("reaction.png");
+    background-size: cover;
+    color:white;
+}
+#box{
+    width:200px;
+    height:200px;
+    margin:30px auto;
+    background:red;
+    cursor:pointer;
+}
+</style>
+
+<script>
+let startTime;
+let waiting = true;
+let bestTime = null;
+
+function startGame(){
+    document.getElementById("status").innerText = "Wait for green...";
+    document.getElementById("box").style.background = "red";
+    waiting = true;
+
+    let delay = Math.random() * 3000 + 2000; // 2–5 sec
+
+    setTimeout(()=>{
+        document.getElementById("box").style.background = "green";
+        document.getElementById("status").innerText = "CLICK!";
+        startTime = Date.now();
+        waiting = false;
+    }, delay);
+}
+
+document.getElementById("box").addEventListener("click", function(){
+    if(waiting){
+        document.getElementById("status").innerText = "Too Soon! 😅";
+        startGame();
+    } else {
+        let reactionTime = Date.now() - startTime;
+        if(bestTime === null || reactionTime < bestTime){
+            bestTime = reactionTime;
+            document.getElementById("best").innerText =
+            "Best: " + bestTime + " ms";
+        }
+        document.getElementById("status").innerText =
+        "Reaction Time: " + reactionTime + " ms";
+
+        setTimeout(startGame, 2000);
+    }
+});
+function goBack(){
+    window.parent.postMessage("goBack", "*");
+}
+
+startGame();
+</script>
+</body>
+</html>
