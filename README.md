@@ -1,23 +1,40 @@
 # WindowsOS
-MaxOS is a fully interactive, browser-based operating system built using HTML, CSS, and JavaScript. It simulates a real desktop environment by combining a multi-window interface, system-like controls, and built-in applications, all running inside a single web page.
+WindowsOS is a web-based simulation of an operating system inspired by Windows. It is built using HTML, CSS, and JavaScript and runs entirely in the browser.
+The goal of this project was to recreate a desktop environment where users can open apps, interact with them, and experience a simplified OS-like interface
+The main screen acts as a desktop.
+Icons represent different applications.
+Clicking an icon opens that app inside the interface.
+Each app is designed as a separate component/page.
+Navigation between apps is handled using JavaScript.
 
-The project features a Windows-inspired UI, including a bottom taskbar, desktop icons, and draggable application windows. Each app behaves like a standalone program, allowing users to open, move, and manage multiple windows simultaneously, closely mimicking the experience of a real operating system.
+APPS:-
+1]Notes App
+Allows the user to write and store notes
+Simple text-based interface
+Useful for quick note-taking inside the OS
+Focuses on basic input handling and UI design
 
-A custom window management system powers the core of MaxOS, enabling features such as window layering, boundary-restricted dragging, maximize/restore functionality, and controlled screen positioning to ensure a smooth and realistic user experience.
+2]Calculator App
+Performs basic arithmetic operations
+Handles addition, subtraction, multiplication, and division
+Built using JavaScript logic for calculations
+Designed to mimic a simple system calculator
 
-MaxOS includes several built-in applications:
+3]Paint App
+Simple drawing application
+User can draw using mouse
+Basic canvas-based implementation
 
-Notes App with persistent storage using localStorage
-Calculator with keyboard support and interactive UI
-Browser capable of loading web pages within an iframe
-Paint App using HTML5 canvas for drawing
-Game Hub, a mini launcher that hosts multiple games with seamless in-app navigation
+4]Browser App
+Simulates a basic web browser
+Allows users to enter a URL or query
+Displays web content inside an iframe 
+Shows how external content can be integrated
 
-The Game Hub has been enhanced with a structured navigation system where games open within the OS and communicate with the main hub using message-based interaction, allowing users to return smoothly without breaking the interface.
+5]Game Hub
+A collection of mini games inside WindowsOS
+Acts as an entertainment section of the OS
+Each game opens separately
+Initially had issues with opening from the main OS, which were later fixed
 
-The project emphasizes:
 
-Realistic OS behavior inside a browser
-Modular app design
-Interactive UI/UX improvements
-Problem-solving for browser limitations (like iframe restrictions and window control)
