@@ -1,40 +1,18 @@
-# WindowsOS
-WindowsOS is a web-based simulation of an operating system inspired by Windows. It is built using HTML, CSS, and JavaScript and runs entirely in the browser.
-The goal of this project was to recreate a desktop environment where users can open apps, interact with them, and experience a simplified OS-like interface
-The main screen acts as a desktop.
-Icons represent different applications.
-Clicking an icon opens that app inside the interface.
-Navigation between apps is handled using JavaScript.
+WindowsOS is a fully functional OS which gives a windows-like interface in a single website. It uses HTML for designing the UI, CSS for styleing it, JS for adding functions to it.It has 5 integrated apps within it. It also has a taskbar on the bottom of the Webpage with integrated timebar which shows the live time.
 
-APPS:-
-1]Notes App:-
-Allows the user to write and store notes.
-Simple text-based interface.
-Useful for quick note-taking inside the OS.
-Focuses on basic input handling and UI design.
+Apps-
+1]Notes- A basic app to write your stories.
+2]Calculator- Can perform basic calculations like +,-,*,/.
+3]Paint- Consists of a basic brush and a color selector.
+4]Browser- Is a mini web made using iframes.
+5]Game Hub- a mini game hub having 4 different games- tictactoe,memory,guessing,reaction.
 
-2]Calculator App:-
-Performs basic arithmetic operations.
-Handles addition, subtraction, multiplication, and division.
-Built using JavaScript logic for calculations.
-Designed to mimic a simple system calculator.
+Challenges-
+1]Building the functions for the paint app and the mini browser.
+2]Live time display bar.
 
-3]Paint App:-
-Simple drawing application.
-User can draw using mouse.
-Basic canvas-based implementation.
+Usage of AI-
+I have used AI for debugging syntax and logical errors and for completeing the difficult challenges faced.
 
-4]Browser App:-
-Simulates a basic web browser.
-Allows users to enter a URL or query.
-Displays web content inside an iframe .
-Shows how external content can be integrated.
-
-5]Game Hub:-
-A collection of mini games inside WindowsOS.
-Acts as an entertainment section of the OS.
-Each game opens separately.
-Initially had issues with opening from the main OS, which were later fixed.
-
-
-
+Note-
+Updates to be done shortly. This is the basic and the first step to my mini WindowsOS project.
